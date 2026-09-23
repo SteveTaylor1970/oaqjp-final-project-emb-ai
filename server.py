@@ -19,7 +19,7 @@ def detect_emotion():
     """
     text_to_analyse = request.args.get('textToAnalyze')
     result = emotion_detector(text_to_analyse)
-    #print (result)
+
     output = "\'anger\': " + str(result['anger']) + ", "
     output = output + "\'disgust\': " + str(result['disgust']) + ", "
     output = output + "\'fear\': " + str(result['fear']) + ", "
@@ -27,8 +27,6 @@ def detect_emotion():
     output = output + "\'sadness\': " + str(result['sadness']) + ". "
     output = output + "The dominant emotion is: " + (result['dominant_emotion'])
     
-    #return "For the given statement, the system response is", result
-
     return "For the given statement, the system response is {}"\
     .format(output)
     

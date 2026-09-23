@@ -20,17 +20,20 @@ def detect_emotion():
     text_to_analyse = request.args.get('textToAnalyze')
     result = emotion_detector(text_to_analyse)
 
-    output = "\'anger\': " + str(result['anger']) + ", "
-    output = output + "\'disgust\': " + str(result['disgust']) + ", "
-    output = output + "\'fear\': " + str(result['fear']) + ", "
-    output = output + "\'joy\': " + str(result['joy']) + ", "
-    output = output + "\'sadness\': " + str(result['sadness']) + ". "
-    output = output + "The dominant emotion is: " + (result['dominant_emotion'])
-    
-    return "For the given statement, the system response is {}"\
-    .format(output)
-    
-    
+    if result['dominant_emotion'] != 'None' :
+
+        output = "\'anger\': " + str(result['anger']) + ", "
+        output = output + "\'disgust\': " + str(result['disgust']) + ", "
+        output = output + "\'fear\': " + str(result['fear']) + ", "
+        output = output + "\'joy\': " + str(result['joy']) + ", "
+        output = output + "\'sadness\': " + str(result['sadness']) + ". "
+        output = output + "The dominant emotion is: " + (result['dominant_emotion'])
+
+        return "For the given statement, the system response is {}"\
+        .format(output)
+            
+    return "Invalid text! Please try again."
+     
 @app.route("/")
 def render_index_page():
     """

@@ -1,6 +1,6 @@
 """
-    Executing this function initiates the application of sentiment
-    analysis to be executed over the Flask channel and deployed on
+    Executing this function initiates the application of emotion detection
+    to be executed over the Flask channel and deployed on
     localhost:5000.
 """
 from flask import Flask, request, render_template
@@ -13,9 +13,9 @@ app = Flask("Emotion Detector")
 def detect_emotion():
     """
         This code receives the text from the HTML interface and 
-        runs sentiment analysis over it using sentiment_analysis()
-        function. The output returned shows the label and its confidence 
-        score for the provided text.
+        runs emotion detection over it using emotion_detector()
+        function. The output returned shows the scores of different
+        emotions for the provided text.
     """
     text_to_analyse = request.args.get('textToAnalyze')
     result = emotion_detector(text_to_analyse)

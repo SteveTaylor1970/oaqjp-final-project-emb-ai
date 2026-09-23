@@ -7,7 +7,7 @@ def emotion_detector(text_to_analyse):
     response = requests.post(url, json = myobj, headers=header)
     
     formatted_response = json.loads(response.text)
-    print(formatted_response)
+    #print(formatted_response)
     anger_score = formatted_response['emotionPredictions'][0]['emotion']['anger']
     disgust_score = formatted_response['emotionPredictions'][0]['emotion']['disgust']
     fear_score = formatted_response['emotionPredictions'][0]['emotion']['fear']
